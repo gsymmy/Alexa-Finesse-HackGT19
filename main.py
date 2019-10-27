@@ -1,51 +1,14 @@
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tag import pos_tag
+import requests
+from bs4 import BeautifulSoup
 
-def distribute():
-    transaction_data = get_transaction_data()
-    total_spent = 100
-    distribution = {}
-    for transaction in transaction_data:
-        category = read_description(description)
-        if category in distribution.keys():
-            distribution[category] += transaction[amount]
-        else:
-            distribution[category] = transaction[amount]
-
-    for key in distribution.keys():
-        distribution[key] = (distribution[key] / total_spent) * 100
-
-    return distribution
-
-# def analyse_dst():
-#     distribution = distribute()
-#     # sort dictionary descending by value
-#     print("You have spent {} on {}, {} on {}, and {} on {}, {}, {}")
-
-# def advice():
-#     distribution = distribute()
-#     # if the top distribution is >50% then say "You're spending too much on this"
-#     #Get the top two distributions
-#     #if they match the same parent category - advice on reduing each a bit
-#     # else say - your finance look sorted
-
-def get_update():
-    curr = get_current_balance()
-    limit = get_budget(month)
-    if limit <= curr:
-        return "Too bad! You're already past the limit" #plays sad song
-    elif limit - curr <= 100:
-        return "You're almost there! Start saving and you'll be fine"
-    elif limit - curr > 100:
-        return "Amazing, you're a pro budgeter!"
-
-# def get_offer_from_unidays():
-#     response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")
-#     html = response.text
-#     soup = BeautifulSoup(html, "html.parser")
-#     tweet = soup.find(class_="tile tile-onebyone")
-#     get_list = tweet.get_text().split()
-#     toReturn = get_text[0] + "has an offer. You can get " + get_list[1] + get_list[2] + get_list[3]
-
-
+Groceries = ["Publix", "Krogers", "CVS", "GoPuff", "FreshMarket"]
+Restaurant = ["UberEats", "Doordash", "Grubhub", "Subway", "HalalGuys", "Intermezzo", "TacoBell", "InsomniaCookies", "Starbucks"]
+Home = ["HomeDepot", "Walmart", "Target"]
+Entertainment = ["Netflix", "PrimeVideo", "Spotify"]
+Education = ["BN", "Blick"]
+Transportation =  ["Uber", "Lyft", "Bird", "Lime"]
 
 def read_description(description):
     text = word_tokenize(description)
@@ -58,12 +21,12 @@ def read_description(description):
 
 
 def categorize(token):
-    Groceries = ["Publix", "Krogers", "CVS", "GoPuff", "FreshMarket"]
-    Restaurant = ["UberEats", "Doordash", "Grubhub", "Subway", "HalalGuys", "Intermezzo", "TacoBell", "InsomniaCookies", "Starbucks"]
-    Home = ["HomeDepot", "Walmart", "Target"]
-    Entertainment = ["Netflix", "PrimeVideo", "Spotify"]
-    Education = ["BN", "Blick"]
-    Transportation =  ["Uber", "Lyft", "Bird", "Lime"]
+    global Groceries
+    global Restaurant
+    global Home
+    global Entertainment
+    global Education
+    global Transportation
     category = ""
     if token in Groceries:
         category = "Grocery"
@@ -80,3 +43,34 @@ def categorize(token):
     else:
         category = "Miscellaenous"
     return category
+
+def scrape_unidays_for_groceries():
+    global Groceries
+    response = requests.get("https://www.myunidays.com/US/en-US/category/all-food_groceries")
+    html = response.text
+    soup = BeautifulSoup(html, "html.parser")
+    scrape = soup.find(class_="tile__group")
+    output = scrape.get_text().split()
+    word_l = []
+    for word in output:
+        if word in Groceries:
+            word_l.append(word)
+            break
+    print(word_l[0])
+
+def scrape_unidays_for_restaurants():
+    global Restaurant
+    response = requests.get("https://www.myunidays.com/US/en-US/category/all-food_in-store-and-delivery")
+    html = response.text
+    soup = BeautifulSoup(html, "html.parser")
+    scrape = soup.find(class_="tile__group")
+    output = scrape.get_text().split()
+    word_l = []
+    for word in output:
+        if word in Restaurant:
+            word_l.append(word)
+            break
+    print(word_l[0])
+
+scrape_unidays_for_groceries()
+scrape_unidays_for_restaurants()

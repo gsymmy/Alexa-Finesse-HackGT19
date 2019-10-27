@@ -1,10 +1,3 @@
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.tag import pos_tag
-# import requests
-# from bs4 import BeautifulSoup
-from data import get_transaction_data
-from data import get_current_balance
-from data import get_budget
 
 def distribute():
     transaction_data = get_transaction_data()

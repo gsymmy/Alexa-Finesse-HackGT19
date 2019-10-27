@@ -5,6 +5,11 @@ import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
 import json
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tag import pos_tag
+import requests
+import math
+# from bs4 import BeautifulSoup
 
 config = {
         "type": "service_account",
@@ -78,5 +83,75 @@ def set_budget(budget, month):
 def get_budget(month):
     return month_ref.child(month).get()
 
+def distribute():
+    transaction_data = get_transaction_data()
+    total_spent = 0.0
+    distribution = {}
+    month_dict = {}
+    for month in transaction_data:
+        for t_id in transaction_data[month]:
+            category = read_description(transaction_data[month][t_id]['description'])
+            total_spent += transaction_data[month][t_id]['amount']
+            if category in distribution.keys():
+                distribution[category] += transaction_data[month][t_id]['amount']
+            else:
+                distribution[category] = transaction_data[month][t_id]['amount']
+        for key in distribution.keys():
+            distribution[key] = math.ceil((distribution[key] / total_spent) * 100)
+        month_dict[month] = distribution
+    
+    return distribution
+
+# def get_update(month):
+#     curr = get_current_balance()
+#     limit = get_budget(month)
+#     if limit <= curr:
+#         return "Too bad! You're already past the limit" #plays sad song
+#     elif limit - curr <= 100:
+#         return "You're almost there! Start saving and you'll be fine"
+#     elif limit - curr > 100:
+#         return "Amazing, you're a pro budgeter!"
 
 
+def read_description(description):
+    text = word_tokenize(description)
+    tagged_tokens = pos_tag(text)
+    noun_tokens = []
+    for tup in tagged_tokens:
+        if tup[1] == "NNP":
+            noun_tokens.append(tup[0])
+    return categorize(noun_tokens[0])
+
+
+def categorize(token):
+    Groceries = ["Publix", "Krogers", "CVS", "GoPuff", "FreshMarket"]
+    Restaurant = ["UberEats", "Doordash", "Grubhub", "Subway", "HalalGuys", "Intermezzo", "TacoBell", "InsomniaCookies", "Starbucks"]
+    Home = ["HomeDepot", "Walmart", "Target"]
+    Entertainment = ["Netflix", "PrimeVideo", "Spotify"]
+    Education = ["BN", "Blick"]
+    Transportation =  ["Uber", "Lyft", "Bird", "Lime"]
+    category = ""
+    if token in Groceries:
+        category = "Grocery"
+    elif token in Restaurant:
+        category = "Restaurant"
+    elif token in Home:
+        category = "Home"
+    elif token in Transportation:
+        category = "Transportation"
+    elif token in Entertainment:
+        category = "Entertainment"
+    elif token in Education:
+        category = "Education"
+    else:
+        category = "Miscellaenous"
+    return category
+
+# def get_offer_from_unidays():
+#    response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")
+#    html = response.text
+#    soup = BeautifulSoup(html, "html.parser")
+#   tweet = soup.find(class_="tile tile-onebyone")
+#   get_list = tweet.get_text().split()
+#   toReturn = get_text[0] + "has an offer. You can get " + get_list[1] + get_list[2] + get_list[3]
+distribute()

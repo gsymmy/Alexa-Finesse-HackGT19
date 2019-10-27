@@ -12,7 +12,7 @@
             "description": "Purchased at Publix on 2019/10/27",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 25.67
+                "amount": 58.89
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -56,7 +56,7 @@
             "description": "Ordered at Doordash today at 5:30",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 10.03
+                "amount": 27.35
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -113,7 +113,7 @@
             "description": "Purchased at Walmart on 2019/10/23",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 79.57
+                "amount": 30.78
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -132,7 +132,7 @@
             "description": "Rode with Lyft at 1 PM",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 6.78
+                "amount": 10.78
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -151,7 +151,7 @@
             "description": "Purchased at Krogers on 2019/10/21",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 89.33
+                "amount": 76.33
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -189,7 +189,7 @@
             "description": "Ordered a Bird at 8:49",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 2.9
+                "amount": 5.7
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -208,7 +208,7 @@
             "description": "Shopped at Blick on 2019/10/25",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 15.03
+                "amount": 10
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,

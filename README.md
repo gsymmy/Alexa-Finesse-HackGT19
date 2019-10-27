@@ -10,7 +10,7 @@ Submitted to HackGT'19
 </p>
 
 ## Demo
-<a href="https://www.youtube.com/embed/KR08cri1SY0" target="_blank"><img src="/echo.jpg" 
+<a href="https://www.youtube.com/embed/KR08cri1SY0" target="_blank"><img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiq8fq0nL3lAhWtVt8KHcnfAo0QjRx6BAgBEAQ&url=https%3A%2F%2Fwww.amazon.com%2FAll-New-Echo-Kids-designed-kids%2Fdp%2FB07KZBPDBG&psig=AOvVaw2iHu_jeRqwF8S9muWUpnI7&ust=1572292569092028" 
 alt="Amazon Echo" width="240" height="180" border="10" />Click on Image for Demo Video</a>
 
 

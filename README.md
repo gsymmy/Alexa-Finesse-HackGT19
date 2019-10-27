@@ -1,7 +1,13 @@
 # HackGT
 Project for HackGT'19
 
-![Finesse](/logo.png)
+<p align="center">
+  <img width="240" height="240" src="/logo.png">
+</p>
+
+## Demo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KR08cri1SY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Inspiration
 Our idea for Finesse sprung from our experiences as students without a meal plan this semester–we used to eat out every day and had no way to track our expenditures and see how we’re managing our money. While some of us had heard of Mint before, we weren’t interested in a financial ‘assistant’ that tells us how much we’re spending and earning. Rather, we wanted an advisor we could talk to. Our desire to try out a FinTech hack along with a motivation to learn Alexa Skills development led to the creation of Finesse

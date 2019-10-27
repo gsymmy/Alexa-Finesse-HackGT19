@@ -1,5 +1,7 @@
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.tag import pos_tag
+import requests
+from bs4 import BeautifulSoup
 
 
 def get_curr_balance():
@@ -32,11 +34,31 @@ def analyse_dst():
     print("You have spent {} on {}, {} on {}, and {} on {}, {}, {}")
 
 def advice():
-    return
-
-def get_offers():
+    distribution = distribute()
+    # if the top distribution is >50% then say "You're spending too much on this"
+    #Get the top two distributions 
+    #if they match the same parent category - advice on reduing each a bit
+    # else say - your finance look sorted
 
 def get_update():
+    curr = get_curr_balance()
+    limit = get_monthly_budget()
+    if limit <= curr:
+        return "Too bad! You're already past the limit" #plays sad song
+    elif limit - curr <= 100:
+        return "You're almost there! Start saving and you'll be fine" 
+    elif limit - curr > 100:
+        return "Amazing, you're a pro budgeter!"
+    
+def get_offer_from_unidays():
+    response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")
+    html = response.text
+    soup = BeautifulSoup(html, "html.parser")
+    tweet = soup.find(class_="tile tile-onebyone")
+    get_list = tweet.get_text().split()
+    toReturn = get_text[0] + "has an offer. You can get " + get_list[1] + get_list[2] + get_list[3]
+
+print(scrape_ether().split())
 
 def read_description(description):
     text = word_tokenize(description)

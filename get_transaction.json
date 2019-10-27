@@ -1,0 +1,163 @@
+{
+    "transactions": [
+        {
+            "id": "S5NnLaY6w_VbFcswuh9vHgO1yq9KXFmVLc-PHJ2-aKU",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0001",
+            "transactionDate": "2019-10-27",
+            "effectiveDate": "2019-10-27",
+            "memo": "Non-Recurring",
+            "description": "Purchased at Publix on 2019/10/27",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 25.67
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "dBEl4iVHtn_6c5SDMRC4MWQYkp3uYX-XULjbE6HT13k",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0002",
+            "transactionDate": "2019-10-26",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Purchased at BN on 2019/10/26",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 53.5
+            },
+            "checkNumber": "12345",
+            "micrNumber": "343433",
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false,
+            "transactionImage": {
+                "imageType": "CHECK",
+                "imageIdentifier": "GelKWWiyW2S5MgWtSfQ4evZO6cnmEG7kEWb03RCArAk"
+            }
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1xkKoneq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0003",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Ordered at Doordash today at 5:30",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 10.03
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "x9zpx6jHv8owHvJV7KjPyAlmPDj8qNI8FqjSuLNgD-M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0004",
+            "transactionDate": "2019-10-24",
+            "effectiveDate": "2019-10-24",
+            "memo": "Recurring",
+            "description": "Payment at Spotify",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 9.99
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "kjdCdjnYwonLq_n81ejuCpRhvVh6DN-Lf6ayk2J2LVU",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0005",
+            "transactionDate": "2019-10-23",
+            "effectiveDate": "2019-10-23",
+            "memo": "Non-Recurring",
+            "description": "Purchased at Walmart on 2019/10/23",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 79.57
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "5QzmqvwRDWR_tJ_3_Rf-sLuXRdt5ANaXBm4VguP-l28",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0006",
+            "transactionDate": "2019-10-22",
+            "effectiveDate": "2019-10-22",
+            "memo": "Non-Recurring",
+            "description": "Rode with Lyft at 1 PM",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 6.78
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "gtvt3KgQiXRupz2DEYBtYLiTGJjWW5gLrUbEzRn0ZyA",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0007",
+            "transactionDate": "2019-10-21",
+            "effectiveDate": "2019-10-21",
+            "memo": "Non-Recurring",
+            "description": "Purchased at Krogers on 2019/10/21"
+",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 89.33
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "uB0gtoxPHB1E7tyD4vr_GaAaGBqY2qvKPoK3k4hQVas",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0008",
+            "transactionDate": "2019-09-26",
+            "effectiveDate": "2019-09-26",
+            "memo": "Non-Recurring",
+            "description": "Purchased at Intermezzo on 2019/10/26",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 51.78
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        }
+    ]
+}

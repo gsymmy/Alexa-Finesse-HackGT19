@@ -1,12 +1,13 @@
 # HackGT
-Project for HackGT'19
+# Project for HackGT'19
 
 <p align="center">
   <img width="240" height="240" src="/logo.png">
 </p>
 
 ## Demo
-[![Video](/echo.jpg)](https://www.youtube.com/watch?v=KR08cri1SY0&feature=youtu.be)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=https://www.youtube.com/watch?v=KR08cri1SY0&feature=youtu.be" target="_blank"><img src="/echo.jpg" 
+alt="Amazon Echo" width="240" height="180" border="10" /></a>
 
 
 ## Inspiration

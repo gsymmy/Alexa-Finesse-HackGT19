@@ -4,6 +4,7 @@ import datetime
 import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
+import json
 
 config = {
         "type": "service_account",
@@ -25,7 +26,6 @@ month_ref = db.reference('Monthly')
 monthly_data = {}
 
 def get_current_balance():
-    get_transaction_data()
     headers = {
         'content-type': "application/json",
         'transactionid': "fdd1542a-bcfd-439b-a6a1-5a064023b0ce",
@@ -42,10 +42,10 @@ def get_transaction_data():
         'transactionid': "fdd1542a-bcfd-439b-a6a1-5a064023b0ce",
         'authorization': "Bearer HgPTB9f9qsMhtmkX4SfUEXkg5GjA"
     }
-    r = requests.get("http://ncrqe-qe.apigee.net/digitalbanking/db-transactions/v1/transactions?accountId=rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU&hostUserId=HACKATHONUSER105", headers=headers)
-    data = r.json()
+    r = requests.get("http://ncrqe-qe.apigee.net/digitalbanking/db-transactions/v1/transactions?accountId=rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU&hostUserId=HACKATHONUSER106", headers=headers)
+    file = open('get_transaction.json', 'r')
+    data = json.load(file)
     for i in range(len(data['transactions'])):
-        print(data['transactions'][i])
         splitted = data['transactions'][i]['transactionDate'].split('-')
         month_name = datetime.date(2019, int(splitted[1]), int(splitted[2])).strftime('%B')
         try:
@@ -56,7 +56,7 @@ def get_transaction_data():
                 'amount': data['transactions'][i]['amount']['amount'],
                 'type': data['transactions'][i]['type'],
                 'rec': data['transactions'][i]['memo']
-            }   
+            }
         except:
             monthly_data[month_name] = {}
             monthly_data[month_name][data['transactions'][i]['id']] = {
@@ -67,12 +67,16 @@ def get_transaction_data():
                 'type': data['transactions'][i]['type'],
                 'rec': data['transactions'][i]['memo']
             }
-    print(monthly_data)
     month_ref.update(monthly_data)
+    return monthly_data
 
-def set_budget(budget):
-    month_ref.child('monthly_budget').update(budget)
+def set_budget(budget, month):
+    month_ref.child(month).update({
+        'monthly_budget' : budget
+        })
 
-get_current_balance()
+def get_budget(month):
+    return month_ref.child(month).get()
+
 
 

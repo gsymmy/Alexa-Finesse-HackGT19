@@ -2,34 +2,25 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.tag import pos_tag
 # import requests
 # from bs4 import BeautifulSoup
-# from data import ncrAnalysis
+from data import get_transaction_data
+from data import get_current_balance
+from data import get_budget
 
+def distribute():
+    transaction_data = get_transaction_data()
+    total_spent = 100
+    distribution = {}
+    for transaction in transaction_data:
+        category = read_description(description)
+        if category in distribution.keys():
+            distribution[category] += transaction[amount]
+        else:
+            distribution[category] = transaction[amount]
 
+    for key in distribution.keys():
+        distribution[key] = (distribution[key] / total_spent) * 100
 
-# def get_curr_balance():
-#     return
-
-# def get_monthly_budget():
-#     return
-
-# def set_monthly_budget(new_budget):
-#     return
-
-# def distribute():
-#     transaction_data = {}
-#     total_spent = 100
-#     distribution = {}
-#     for transaction in transaction_data:
-#         category = read_description(description)
-#         if category in distribution.keys():
-#             distribution[category] += transaction[amount]
-#         else:
-#             distribution[category] = transaction[amount]
-
-#     for key in distribution.keys():
-#         distribution[key] = (distribution[key] / total_spent) * 100
-
-#     return distribution
+    return distribution
 
 # def analyse_dst():
 #     distribution = distribute()
@@ -43,15 +34,15 @@ from nltk.tag import pos_tag
 #     #if they match the same parent category - advice on reduing each a bit
 #     # else say - your finance look sorted
 
-# def get_update():
-#     curr = get_curr_balance()
-#     limit = get_monthly_budget()
-#     if limit <= curr:
-#         return "Too bad! You're already past the limit" #plays sad song
-#     elif limit - curr <= 100:
-#         return "You're almost there! Start saving and you'll be fine"
-#     elif limit - curr > 100:
-#         return "Amazing, you're a pro budgeter!"
+def get_update():
+    curr = get_current_balance()
+    limit = get_budget(month)
+    if limit <= curr:
+        return "Too bad! You're already past the limit" #plays sad song
+    elif limit - curr <= 100:
+        return "You're almost there! Start saving and you'll be fine"
+    elif limit - curr > 100:
+        return "Amazing, you're a pro budgeter!"
 
 # def get_offer_from_unidays():
 #     response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")

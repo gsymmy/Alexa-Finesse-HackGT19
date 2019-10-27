@@ -4,8 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 
 
+
 def get_curr_balance():
-    return 
+    return
 
 def get_monthly_budget():
     return
@@ -36,7 +37,7 @@ def analyse_dst():
 def advice():
     distribution = distribute()
     # if the top distribution is >50% then say "You're spending too much on this"
-    #Get the top two distributions 
+    #Get the top two distributions
     #if they match the same parent category - advice on reduing each a bit
     # else say - your finance look sorted
 
@@ -46,10 +47,10 @@ def get_update():
     if limit <= curr:
         return "Too bad! You're already past the limit" #plays sad song
     elif limit - curr <= 100:
-        return "You're almost there! Start saving and you'll be fine" 
+        return "You're almost there! Start saving and you'll be fine"
     elif limit - curr > 100:
         return "Amazing, you're a pro budgeter!"
-    
+
 def get_offer_from_unidays():
     response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")
     html = response.text

@@ -129,8 +129,7 @@
             "transactionDate": "2019-10-21",
             "effectiveDate": "2019-10-21",
             "memo": "Non-Recurring",
-            "description": "Purchased at Krogers on 2019/10/21"
-",
+            "description": "Purchased at Krogers on 2019/10/21",
             "amount": {
                 "currencyCode": "USD",
                 "amount": 89.33

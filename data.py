@@ -86,10 +86,10 @@ def get_budget(month):
 
 def distribute():
     transaction_data = get_transaction_data()
-    total_spent = 0.0
     distribution = {}
     month_dict = {}
     for month in transaction_data:
+        total_spent = 0.0
         for t_id in transaction_data[month]:
             category = read_description(transaction_data[month][t_id]['description'])
             total_spent += transaction_data[month][t_id]['amount']
@@ -97,11 +97,17 @@ def distribute():
                 distribution[category] += transaction_data[month][t_id]['amount']
             else:
                 distribution[category] = transaction_data[month][t_id]['amount']
+        set_spending(total_spent, month)
         for key in distribution.keys():
             distribution[key] = math.ceil((distribution[key] / total_spent) * 100)
         month_dict[month] = distribution
 
     return distribution
+
+def set_spending(val, month):
+    month_ref.child(month).update({
+        'total_spending' : val
+        })
 
 # def get_update(month):
 #     curr = get_current_balance()

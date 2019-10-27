@@ -4,10 +4,10 @@
 <p align="center">
   <img width="240" height="240" src="/logo.png">
 </p>
-
+<iframe width="1680" height="683" src="https://www.youtube.com/embed/KR08cri1SY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ## Demo
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=https://www.youtube.com/watch?v=KR08cri1SY0&feature=youtu.be" target="_blank"><img src="/echo.jpg" 
-alt="Amazon Echo" width="240" height="180" border="10" /></a>
+<a href="https://www.youtube.com/embed/KR08cri1SY0" target="_blank"><img src="/echo.jpg" 
+alt="Amazon Echo" width="240" height="180" border="10" />Click on Image for Demo Video</a>
 
 
 ## Inspiration

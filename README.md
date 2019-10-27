@@ -2,8 +2,8 @@
 
 Submitted to HackGT'19
 
-## Best Use of NCR's Banking API
-## Best Cloud Computing Application to improve FinTech Industry by Accenture
+*Best Use of NCR's Banking API
+*Best Cloud Computing Application to improve FinTech Industry by Accenture
 
 <p align="center">
   <img width="240" height="240" src="/logo.png">

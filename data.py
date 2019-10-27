@@ -73,8 +73,9 @@ def get_transaction_data():
                 'rec': data['transactions'][i]['memo']
             }
     month_ref.update(monthly_data)
-    return monthly_data
 
+    return monthly_data
+get_transaction_data()
 def set_budget(budget, month):
     month_ref.child(month).update({
         'monthly_budget' : budget
@@ -99,7 +100,7 @@ def distribute():
         for key in distribution.keys():
             distribution[key] = math.ceil((distribution[key] / total_spent) * 100)
         month_dict[month] = distribution
-    
+
     return distribution
 
 # def get_update(month):

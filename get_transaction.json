@@ -56,7 +56,7 @@
             "description": "Ordered at Doordash today at 5:30",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 27.35
+                "amount": 54.7
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,
@@ -305,7 +305,7 @@
             "description": "Purchase with Subway payment system on 2019/10/25",
             "amount": {
                 "currencyCode": "USD",
-                "amount": 6.57
+                "amount": 16.9
             },
             "type": "WITHDRAWAL",
             "isCreditTransaction": false,

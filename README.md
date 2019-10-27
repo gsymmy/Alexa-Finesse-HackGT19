@@ -2,7 +2,7 @@
 
 Submitted to HackGT'19
 
-* Best Hack by NCR
+* Best use of NCR's API
 * Best Cloud Computing Application to improve FinTech Industry by Accenture
 
 <p align="center">

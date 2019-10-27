@@ -157,6 +157,158 @@
             "isCreditTransaction": false,
             "isExportable": true,
             "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1xkKtwoq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0009",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Ordered a Bird at 8:49",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 2.9
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1xkBtneq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0010",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Shopped at Blick on 2019/10/25",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 15.03
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxMF9Rn17B1xkKoneq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0011",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Recurring",
+            "description": "Payment on Netflix on 2019/10/25",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 14.9
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1cdKonqq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0012",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Recurring",
+            "description": "Payment on PrimeVideo on 2019/10/25",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 12.99
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1xkKoneq_7omvo7not1JaM7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0013",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Purchase with Subway payment system on 2019/10/25",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 6.57
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-eDxDF9Rn19E1xkKthre_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0014",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Purchased at Publix",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 37.8
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CAMNKAu-eDxDF9Rn19E1xkKoneq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0015",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Ordered with Grubhub at 9 PM",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 17.9
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
+        },
+        {
+            "id": "0CGSNKAu-uDmDF9Rn20E1xkKoneq_7omvo7KI1JkW7M",
+            "institutionId": "00516",
+            "institutionUserId": "9d9851e5ec5440539c04a0a3cd25a360",
+            "accountId": "rf5ao6Qclwsth9OfOvUb-EeV1m2BfmTzUEALGLQ3ehU",
+            "transactionNumber": "0016",
+            "transactionDate": "2019-10-25",
+            "effectiveDate": "2019-10-25",
+            "memo": "Non-Recurring",
+            "description": "Venmo payment",
+            "amount": {
+                "currencyCode": "USD",
+                "amount": 54.75
+            },
+            "type": "WITHDRAWAL",
+            "isCreditTransaction": false,
+            "isExportable": true,
+            "isPending": false
         }
     ]
 }

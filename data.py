@@ -73,18 +73,17 @@ def get_transaction_data():
                 'rec': data['transactions'][i]['memo']
             }
     month_ref.update(monthly_data)
-
     return monthly_data
-get_transaction_data()
+
 def set_budget(budget, month):
     month_ref.child(month).update({
         'monthly_budget' : budget
         })
 
 def get_budget(month):
-    return month_ref.child(month).get()
+    return month_ref.child(month).child('monthly_budget').get()
 
-def distribute():
+def distribute(month):
     transaction_data = get_transaction_data()
     distribution = {}
     month_dict = {}
@@ -101,7 +100,6 @@ def distribute():
         for key in distribution.keys():
             distribution[key] = math.ceil((distribution[key] / total_spent) * 100)
         month_dict[month] = distribution
-
     return distribution
 
 def set_spending(val, month):
@@ -109,16 +107,54 @@ def set_spending(val, month):
         'total_spending' : val
         })
 
-# def get_update(month):
-#     curr = get_current_balance()
-#     limit = get_budget(month)
-#     if limit <= curr:
-#         return "Too bad! You're already past the limit" #plays sad song
-#     elif limit - curr <= 100:
-#         return "You're almost there! Start saving and you'll be fine"
-#     elif limit - curr > 100:
-#         return "Amazing, you're a pro budgeter!"
+def get_update(month):
+    curr = get_current_balance()
+    limit = get_budget(month)
+    if limit <= curr:
+       return "Too bad! You're already past the limit." #plays sad song
+    elif limit - curr <= 100:
+        return "You're almost there! Start saving and you'll be fine."
+    elif limit - curr > 100:
+        return "Amazing, you're a pro budgeter!"
 
+
+def get_analysis(month):
+    distribution = distribute(month)
+    temp = []
+    temp.append(sorted(distribution.items(), key = 
+             lambda kv:(kv[1], kv[0])))  
+    top_expend = temp[0][-1]
+    second_expend = temp[0][-2]
+    third_expend = temp[0][-3]
+    toReturn = "Based on your expenditure in " + month + " you have spent " + str(top_expend[1]) + " percent on " + top_expend[0] + ", " + str(second_expend[1]) + " percent on " + second_expend[0] + ", " + str(third_expend[1]) + " percent on " + third_expend[0] + " and rest on others."
+    return toReturn
+
+def get_advice(month):
+     distribution = distribute(month)
+     temp = []
+     temp.append(sorted(distribution.items(), key = lambda kv:(kv[1], kv[0]))) 
+     top_expend = temp[0][-1]
+     second_expend = temp[0][-2]
+     catalog = {"Grocery": "Food", "Entertainment": "Lifestyle", "Restaurant" : "Food", "Home": "Utilities", "Education": "Education", "Transportation": "Transportation", "Miscellaneous": "Miscellaneous"}
+     toReturn = ""
+     print(catalog[top_expend[0]])
+     if top_expend[1] >= 30:
+         toReturn += "You are spending way too much on " + top_expend[0] + ". Please consider cutting down. "
+     else:
+        toReturn += "Your monthly distribution of money looks fine! "
+     if catalog[top_expend[0]] == catalog[second_expend[0]] :
+         toReturn += "Your expenditure on " + top_expend[0] + " and " + second_expend[0] + " seems similar in nature. You should rethink your distribtion."
+     else:
+         toReturn += "Your finances are sorted."
+     return toReturn
+    
+    
+
+#     distribution = distribute()
+#     # if the top distribution is >50% then say "You're spending too much on this"
+#     #Get the top two distributions
+#     #if they match the same parent category - advice on reduing each a bit
+#     # else say - your finance look sorted
 
 def read_description(description):
     text = word_tokenize(description)
@@ -151,7 +187,7 @@ def categorize(token):
     elif token in Education:
         category = "Education"
     else:
-        category = "Miscellaenous"
+        category = "Miscellaneous"
     return category
 
 # def get_offer_from_unidays():
@@ -161,4 +197,17 @@ def categorize(token):
 #   tweet = soup.find(class_="tile tile-onebyone")
 #   get_list = tweet.get_text().split()
 #   toReturn = get_text[0] + "has an offer. You can get " + get_list[1] + get_list[2] + get_list[3]
-distribute()
+
+def get_recurring():
+    recurring = set()
+    t_data = get_transaction_data()
+    for month in t_data:
+        for t_id in t_data[month]:
+            if 'Non' not in t_data[month][t_id]['rec']:
+                text = word_tokenize(t_data[month][t_id]['description'])
+                tagged_tokens = pos_tag(text)
+                for tup in tagged_tokens:
+                    if tup[1] == "NNP":
+                        recurring.add(tup[0])
+            
+def 

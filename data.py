@@ -9,7 +9,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.tag import pos_tag
 import requests
 import math
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 config = {
         "type": "service_account",
@@ -28,6 +28,16 @@ default_app = firebase_admin.initialize_app(cred, options = {
     'databaseURL': "https://hackgt-finesse.firebaseio.com/"
     })
 month_ref = db.reference('Monthly')
+
+Groceries = ["Publix", "Krogers", "CVS", "GoPuff", "FreshMarket"]
+Restaurant = ["UberEats", "Doordash", "Grubhub", "Subway", "HalalGuys", "Intermezzo", "TacoBell", "InsomniaCookies", "Starbucks"]
+Home = ["HomeDepot", "Walmart", "Target"]
+Entertainment = ["Netflix", "PrimeVideo", "Spotify"]
+Education = ["BN", "Blick"]
+Transportation =  ["Uber", "Lyft", "Bird", "Lime"]
+
+
+
 monthly_data = {}
 
 def get_current_balance():
@@ -167,12 +177,12 @@ def read_description(description):
 
 
 def categorize(token):
-    Groceries = ["Publix", "Krogers", "CVS", "GoPuff", "FreshMarket"]
-    Restaurant = ["UberEats", "Doordash", "Grubhub", "Subway", "HalalGuys", "Intermezzo", "TacoBell", "InsomniaCookies", "Starbucks"]
-    Home = ["HomeDepot", "Walmart", "Target"]
-    Entertainment = ["Netflix", "PrimeVideo", "Spotify"]
-    Education = ["BN", "Blick"]
-    Transportation =  ["Uber", "Lyft", "Bird", "Lime"]
+    global Groceries
+    global Restaurant
+    global Home
+    global Entertainment
+    global Education
+    global Transportation
     category = ""
     if token in Groceries:
         category = "Grocery"
@@ -187,16 +197,36 @@ def categorize(token):
     elif token in Education:
         category = "Education"
     else:
-        category = "Miscellaneous"
+        category = "Miscellaenous"
     return category
 
-# def get_offer_from_unidays():
-#    response = requests.get("https://www.myunidays.com/US/en-US/category/all-tech_laptops-and-tablets")
-#    html = response.text
-#    soup = BeautifulSoup(html, "html.parser")
-#   tweet = soup.find(class_="tile tile-onebyone")
-#   get_list = tweet.get_text().split()
-#   toReturn = get_text[0] + "has an offer. You can get " + get_list[1] + get_list[2] + get_list[3]
+def scrape_unidays_for_groceries():
+    global Groceries
+    response = requests.get("https://www.myunidays.com/US/en-US/category/all-food_groceries")
+    html = response.text
+    soup = BeautifulSoup(html, "html.parser")
+    scrape = soup.find(class_="tile__group")
+    output = scrape.get_text().split()
+    word_l = []
+    for word in output:
+        if word in Groceries:
+            word_l.append(word)
+            break
+    return word_l[0]
+
+def scrape_unidays_for_restaurants():
+    global Restaurant
+    response = requests.get("https://www.myunidays.com/US/en-US/category/all-food_in-store-and-delivery")
+    html = response.text
+    soup = BeautifulSoup(html, "html.parser")
+    scrape = soup.find(class_="tile__group")
+    output = scrape.get_text().split()
+    word_l = []
+    for word in output:
+        if word in Restaurant:
+            word_l.append(word)
+            break
+    return word_l[0]
 
 def get_recurring():
     recurring = set()
@@ -209,5 +239,6 @@ def get_recurring():
                 for tup in tagged_tokens:
                     if tup[1] == "NNP":
                         recurring.add(tup[0])
+    return recurring
             
-def 
+ 
